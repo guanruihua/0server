@@ -1,0 +1,13 @@
+lib/
+test/
+# src/
+push.bat
+README.md
+.gitignore
+jest.config.ts
+tsconfig.json
+.eslint*
+.prettierr*
+yarn-*.json
+*-lock.yaml
+*-lock.json

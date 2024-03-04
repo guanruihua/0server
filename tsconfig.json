@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "sourceMap": true,
+    "outDir": "./lib",
+    "removeComments": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "alwaysStrict": false,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "Node",
+    "baseUrl": "./src",
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "declaration": true
+  },
+  "ts-node": {
+    "esm": true
+  },
+  "lib": [
+    "CommonJS"
+  ],
+  "include": [
+    "./node_modules/**/*.d.ts",
+    "./typings/*.d.ts",
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "**/*/__test__/*",
+    "**/*/__test__/",
+    "**/*/md.ts",
+    "**/*/*.md"
+  ]
+}

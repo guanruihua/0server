@@ -1,0 +1,7 @@
+export * from './dataBuriedPoint'
+export * from './image'
+export * from './paragraph'
+export * from './sentence'
+export * from './single'
+export * from './word'
+export * from './imgUpload'
