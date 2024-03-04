@@ -2,13 +2,14 @@ import express, { Request, Response } from 'express'
 import bodyParser, { json, urlencoded } from 'body-parser'
 import cors from 'cors'
 import morgan from 'morgan'
-import path from 'path'
+import type { AppConfig } from '../type'
 
 export class App {
   public app: express.Application
-  constructor() {
+  public appConfig?: AppConfig
+  constructor(config: AppConfig = {}) {
     this.app = express()
-    this.config()
+    this.appConfig = config
     this.app.get('/', (req: Request, res: Response) => {
       res.send({ message: 'Hello 0server ' })
     })
@@ -29,7 +30,6 @@ export class App {
       // res.header('Content-Type', 'application/json;charset=utf-8')
       next()
     })
-    this.app.use('/public/', express.static(path.join(__dirname, '../../public')))
 
     //日志中间件
     this.app.use(
@@ -52,4 +52,4 @@ export class App {
   }
 }
 
-export const app = new App().app
+// export const app = new App().app

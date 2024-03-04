@@ -1,4 +1,4 @@
-import { apiServer, loadApis, initTableApi, mock, VDao, initDictionary } from '../src'
+import { apiServer, initTableApi, mock, VDao } from '../src'
 import { read } from '0file-system'
 import path from 'path'
 
@@ -36,6 +36,8 @@ config.vDao.init('db', db.list)
 const dbApis = initTableApi('db', config)
 // console.log(apiServer, loadApis)
 apiServer({
-  callback: () => loadApis(dbApis),
-  port: 13000
+  apis: dbApis,
+  // callback: () => loadApis(dbApis),
+  port: 13000,
+  imgPath: path.resolve(__dirname, './public')
 })

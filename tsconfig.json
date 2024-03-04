@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "CommonJS",
     "sourceMap": true,
     "outDir": "./lib",
     "removeComments": false,
@@ -21,7 +20,7 @@
     "esm": true
   },
   "lib": [
-    "CommonJS"
+    "ESNext"
   ],
   "include": [
     "./node_modules/**/*.d.ts",

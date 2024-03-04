@@ -57,7 +57,7 @@
     "eslint": "^8.10.0",
     "eslint-plugin-prettier": "^4.0.0",
     "express": "^4.17.1",
-    "mock-record": "^2.0.3",
+    "mock-record": "^2.0.4",
     "multer": "^1.4.5-lts.1",
     "node-notifier": "^8.0.2",
     "rimraf": "^3.0.2",

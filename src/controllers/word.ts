@@ -1,7 +1,6 @@
 import { Request, Response } from 'express'
 import { LoremIpsum } from 'lorem-ipsum'
 import { MAX_WORDS } from '../library/config'
-import { loadApis } from '../library/loadApis'
 
 // eslint-disable-next-line
 export function word(param: Record<string, any>, req: Request, res: Response) {
@@ -12,7 +11,7 @@ export function word(param: Record<string, any>, req: Request, res: Response) {
 	return lorem
 }
 
-loadApis([{
+export const wordController = {
 	get: /\/(\d+)(?:w|word|words)(,*)$/,
 	callback: word
-}])
+}

@@ -1,19 +1,20 @@
 import { Request, Response } from 'express'
 import { LoremIpsum } from 'lorem-ipsum'
-import { loadApis } from '../library/loadApis'
 import { MAX_PARAGRAPH } from '../library/config'
 
 // eslint-disable-next-line
 export function callback(param: Record<string, any>, req: Request, res: Response): void {
-	let lorem: any = (new LoremIpsum()).generateParagraphs(Math.min(parseInt(req.params[0]), MAX_PARAGRAPH))
-	req.params[1] === ',' && (lorem = lorem.split('\r\n'))
+  let lorem: any = new LoremIpsum().generateParagraphs(
+    Math.min(parseInt(req.params[0]), MAX_PARAGRAPH)
+  )
+  req.params[1] === ',' && (lorem = lorem.split('\r\n'))
 
-	res.json({
-		"data": lorem
-	})
+  res.json({
+    data: lorem
+  })
 }
 
-loadApis([{
-	get: /\/(\d+)(?:p|paragraph|paragraphs)(,*)$/,
-	callback,
-}])
+export const paragraphController = {
+  get: /\/(\d+)(?:p|paragraph|paragraphs)(,*)$/,
+  callback
+}

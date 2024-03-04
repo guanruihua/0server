@@ -10,6 +10,9 @@ import { terser } from 'rollup-plugin-terser'
 import json from '@rollup/plugin-json';
 import pkg from './package.json'
 
+    // "module": "CommonJS",
+
+
 const paths = {
   input: path.join(__dirname, '/src/index.ts'),
   output: path.join(__dirname, '/lib')
@@ -45,15 +48,15 @@ const rollupConfig = {
     // }),
 
     // 使得 rollup 支持 commonjs 规范，识别 commonjs 规范的依赖
-    commonjs(),
     json(),
+    commonjs(),
     // 配合 commnjs 解析第三方模块
     resolve({
       preferBuiltins: true,
       // 将自定义选项传递给解析插件
-      customResolveOptions: {
-        moduleDirectory: 'node_modules'
-      }
+      // customResolveOptions: {
+      //   moduleDirectory: 'node_modules'
+      // }
     }),
     rollupTypescript(),
     babel({

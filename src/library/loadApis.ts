@@ -1,22 +1,21 @@
-import { Request, Response } from 'express'
+import { Request, Response, Application } from 'express'
 import { color } from 'rh-color'
-import type { ApiUnit } from '../type'
-import { app } from './app'
+import type { ApiUnit, AppConfig } from '../type'
 
 /**
  * @description 通过接口配置数组, 生成接口
  * @param list: ApiUnit[]
  */
-export function loadApis(list: ApiUnit[]): void {
+export function loadApis(app: Application, list: ApiUnit[], appConfig: AppConfig = {}): void {
   list.forEach((item: ApiUnit): void => {
     const { get, post, callback, useCallbackResult = true, useApp } = item
 
     console.log(color(get ? 'get:' : 'post:', get ? 'Cyan' : 'Yellow'), color(get || post, 'Green'))
 
     try {
-      if(useApp){
-        useApp(app)
-        return 
+      if (useApp) {
+        useApp(app, appConfig)
+        return
       }
       if (get) {
         if (!useCallbackResult) {
