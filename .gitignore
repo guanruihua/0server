@@ -6,3 +6,4 @@ dist/
 *.log
 *lock
 lib/
+test/public/
