@@ -10,9 +10,6 @@ import { terser } from 'rollup-plugin-terser'
 import json from '@rollup/plugin-json';
 import pkg from './package.json'
 
-    // "module": "CommonJS",
-
-
 const paths = {
   input: path.join(__dirname, '/src/index.ts'),
   output: path.join(__dirname, '/lib')
@@ -54,9 +51,9 @@ const rollupConfig = {
     resolve({
       preferBuiltins: true,
       // 将自定义选项传递给解析插件
-      // customResolveOptions: {
-      //   moduleDirectory: 'node_modules'
-      // }
+      customResolveOptions: {
+        moduleDirectory: 'node_modules'
+      }
     }),
     rollupTypescript(),
     babel({

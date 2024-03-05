@@ -1,9 +1,6 @@
 import { apiServer, initTableApi, mock, VDao } from '../src'
-import { read } from '0file-system'
 import path from 'path'
-
-// const dirs = read(path.resolve(__dirname, './'), { tree: true })
-// console.log(dirs)
+import { gen, getFile } from './gen'
 
 const config = {
   vDao: new VDao(),
@@ -17,7 +14,7 @@ const config = {
   },
   baseUrl: '/vr/',
   analysisParams: (data: Record<string, any>) => {
-    return { code: '0', result: data, message: 'Successful' }
+    return { code: '0', data, message: 'Successful' }
   }
 }
 
@@ -33,11 +30,20 @@ const db = mock({
 })
 config.vDao.init('db', db.list)
 
-const dbApis = initTableApi('db', config)
-// console.log(apiServer, loadApis)
+const dbApis = [
+  {
+    get: '/vr/gen/query',
+    callback: gen
+  },
+  {
+    get: '/vr/gen/genFile',
+    callback: getFile
+  },
+  ...initTableApi('db', config)
+]
+
 apiServer({
   apis: dbApis,
-  // callback: () => loadApis(dbApis),
   port: 13000,
   imgPath: path.resolve(__dirname, './public')
 })

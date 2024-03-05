@@ -7,7 +7,7 @@ import type { ApiUnit, AppConfig } from '../type'
  * @param list: ApiUnit[]
  */
 export function loadApis(app: Application, list: ApiUnit[], appConfig: AppConfig = {}): void {
-  list.forEach((item: ApiUnit): void => {
+  list.forEach((item: ApiUnit) => {
     const { get, post, callback, useCallbackResult = true, useApp } = item
 
     console.log(color(get ? 'get:' : 'post:', get ? 'Cyan' : 'Yellow'), color(get || post, 'Green'))
@@ -19,21 +19,21 @@ export function loadApis(app: Application, list: ApiUnit[], appConfig: AppConfig
       }
       if (get) {
         if (!useCallbackResult) {
-          app.get(get, (req: Request, res: Response) => callback({}, req, res))
+          app.get(get, async (req: Request, res: Response) => await callback({}, req, res))
           return
         } else {
-          app.get(get, (req: Request, res: Response): void => {
-            res.send(callback(req.query, req, res))
+          app.get(get, async (req: Request, res: Response) => {
+            res.send(await callback(req.query, req, res))
           })
         }
       }
 
       if (post) {
         if (!useCallbackResult) {
-          app.post(post, (req: Request, res: Response) => callback({}, req, res))
+          app.post(post, async (req: Request, res: Response) => await callback({}, req, res))
         } else {
-          app.post(post, (req: Request, res: Response): void => {
-            res.json(callback(Object.assign(req.query, req.body || {}), req, res))
+          app.post(post, async (req: Request, res: Response) => {
+            res.json(await callback(Object.assign(req.query, req.body || {}), req, res))
           })
         }
       }
