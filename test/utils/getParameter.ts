@@ -1,5 +1,5 @@
 import { isString } from 'asura-eye'
-import { ObjectType, stringify } from 'abandonjs'
+import { ObjectType } from 'abandonjs'
 
 export const getParameter = (value: string): ObjectType<string> => {
   if (!isString(value)) {
@@ -26,6 +26,13 @@ export const getParameter = (value: string): ObjectType<string> => {
           .replace('$$', '')
       }
 
+      if (name.includes(',')) {
+        name = name.replace(',', '')
+      }
+      if (text.includes(',')) {
+        text = text.replace(',', '')
+      }
+      
       if (text.indexOf('<!--') > -1) {
         name = text.replace(/\s|\/|<!--|-->|\$\$/gi, '')
       }

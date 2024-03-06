@@ -1,5 +1,6 @@
 export const ImportName = `APageTable,  ARightToolbar, AButton`
-export const Render = ` <a-page-table
+export const ImportName2 = `import { FilterField, Columns } from './constant'`
+export const render = ` <a-page-table
       :loading="loading"
       :columns="Columns"
       :data="dataSource"

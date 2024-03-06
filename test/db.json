@@ -1,0 +1,76 @@
+{
+  "configList": [
+    {
+      "dependent": "import EditDialog from './edit-dialog.vue'",
+      "render": "<edit-dialog :action=\"dialogAction\" :ac=\"ac\" />",
+      "CodeDependent": "useDialog",
+      "Code": "const dialogAction = useDialog()"
+    },
+    {
+      "ImportName": "AFilter",
+      "render": "<a-filter\n      v-show=\"showSearch\"\n      v-hasPermi=\"'management:role:query'\"\n      :model=\"filterParams\"\n      :on-query=\"() => ac.handlePage(filterParams, true)\"\n    >\n      <el-form-item\n        v-for=\"item in FilterField\"\n        :key=\"item.prop\"\n        :label=\"item.title\"\n        :prop=\"item.prop\"\n      >\n        <a-input v-model=\"filterParams[item.prop]\" />\n      </el-form-item>\n    </a-filter>"
+    },
+    {
+      "dep": "import { useHook } from './hook'",
+      "Code": "const { loading, filterParams, paging, showSearch, dataSource, ac } = useHook()\n"
+    },
+    {
+      "ImportName": "APageTable,  ARightToolbar, AButton",
+      "ImportName2": "import { FilterField, Columns } from './constant'",
+      "render": " <a-page-table\n      :loading=\"loading\"\n      :columns=\"Columns\"\n      :data=\"dataSource\"\n      :paging=\"paging\"\n      @pagination=\"ac.pagination\"\n    >\n      <a-button\n        permission=\"management:role:add\"\n        data-type=\"add\"\n        @click=\"dialogAc.onCreate\"\n      />\n      <a-right-toolbar\n        v-model:showSearch=\"showSearch\"\n        v-hasPermi=\"'management:role:query'\"\n        @refresh=\"ac.handlePage(filterParams)\"\n      />\n      <template #actions=\"{ row }\">\n        <a-button\n          v-if=\"row.code !=='admin'\"\n          permission=\"management:role:edit\"\n          data-type=\"edit\"\n          :click=\"() => dialogAc.onEdit(row)\"\n        />\n        <a-button\n          v-if=\"row.code !== 'admin'\"\n          permission=\"management:role:delete\"\n          data-type=\"del\"\n          :click=\"() => ac.handleDel(row)\"\n        />\n      </template>\n    </a-page-table>"
+    }
+  ],
+  "config": {
+    "dialog.dependent": "import EditDialog from './edit-dialog.vue'",
+    "dialog.render": "<edit-dialog :action=\"dialogAction\" :ac=\"ac\" />",
+    "dialog.CodeDependent": "useDialog",
+    "dialog.Code": "const dialogAction = useDialog()",
+    "filter.ImportName": "AFilter",
+    "filter.render": "<a-filter\n      v-show=\"showSearch\"\n      v-hasPermi=\"'management:role:query'\"\n      :model=\"filterParams\"\n      :on-query=\"() => ac.handlePage(filterParams, true)\"\n    >\n      <el-form-item\n        v-for=\"item in FilterField\"\n        :key=\"item.prop\"\n        :label=\"item.title\"\n        :prop=\"item.prop\"\n      >\n        <a-input v-model=\"filterParams[item.prop]\" />\n      </el-form-item>\n    </a-filter>",
+    "hook.dep": "import { useHook } from './hook'",
+    "hook.Code": "const { loading, filterParams, paging, showSearch, dataSource, ac } = useHook()\n",
+    "table.ImportName": "APageTable,  ARightToolbar, AButton",
+    "table.ImportName2": "import { FilterField, Columns } from './constant'",
+    "table.render": " <a-page-table\n      :loading=\"loading\"\n      :columns=\"Columns\"\n      :data=\"dataSource\"\n      :paging=\"paging\"\n      @pagination=\"ac.pagination\"\n    >\n      <a-button\n        permission=\"management:role:add\"\n        data-type=\"add\"\n        @click=\"dialogAc.onCreate\"\n      />\n      <a-right-toolbar\n        v-model:showSearch=\"showSearch\"\n        v-hasPermi=\"'management:role:query'\"\n        @refresh=\"ac.handlePage(filterParams)\"\n      />\n      <template #actions=\"{ row }\">\n        <a-button\n          v-if=\"row.code !=='admin'\"\n          permission=\"management:role:edit\"\n          data-type=\"edit\"\n          :click=\"() => dialogAc.onEdit(row)\"\n        />\n        <a-button\n          v-if=\"row.code !== 'admin'\"\n          permission=\"management:role:delete\"\n          data-type=\"del\"\n          :click=\"() => ac.handleDel(row)\"\n        />\n      </template>\n    </a-page-table>"
+  },
+  "templateList": [
+    {
+      "name": "index.vue",
+      "path": "C:\\RUIHUA\\npm\\0server\\test\\temp",
+      "isDir": false,
+      "files": [],
+      "dirs": [],
+      "data": "<script setup>\r\nimport {\r\n  // $$filter.ImportName,\r\n  // $$table.ImportName,\r\n  // $$dialog.CodeDependent\r\n} from '@/components'\r\n// $$table.ImportName2\r\n// $$dialog.dependent\r\n// $$dialog.Code\r\n// $$hook.Code\r\n</script>\r\n\r\n<template>\r\n  <div class=\"app-container\">\r\n    <!-- $$filter.render -->\r\n    <!-- $$table.render -->\r\n    <!-- $$dialog.render -->\r\n  </div>\r\n</template>\r\n\r\n<style scoped></style>\r\n",
+      "children": [],
+      "parameter": [
+        "filter.ImportName",
+        "table.ImportName",
+        "dialog.CodeDependent",
+        "table.ImportName2",
+        "dialog.dependent",
+        "dialog.Code",
+        "hook.Code",
+        "filter.render",
+        "table.render",
+        "dialog.render"
+      ]
+    }
+  ],
+  "template": {
+    "C:\\RUIHUA\\npm\\0server\\test\\temp|index.vue": {
+      "data": "<script setup>\r\nimport {\r\n  // $$filter.ImportName,\r\n  // $$table.ImportName,\r\n  // $$dialog.CodeDependent\r\n} from '@/components'\r\n// $$table.ImportName2\r\n// $$dialog.dependent\r\n// $$dialog.Code\r\n// $$hook.Code\r\n</script>\r\n\r\n<template>\r\n  <div class=\"app-container\">\r\n    <!-- $$filter.render -->\r\n    <!-- $$table.render -->\r\n    <!-- $$dialog.render -->\r\n  </div>\r\n</template>\r\n\r\n<style scoped></style>\r\n",
+      "params": {
+        "filter.ImportName": "  // $$filter.ImportName\r",
+        "table.ImportName": "  // $$table.ImportName\r",
+        "dialog.CodeDependent": "  // $$dialog.CodeDependent\r",
+        "table.ImportName2": "// $$table.ImportName2\r",
+        "dialog.dependent": "// $$dialog.dependent\r",
+        "dialog.Code": "// $$dialog.Code\r",
+        "hook.Code": "// $$hook.Code\r",
+        "filter.render": "    <!-- $$filter.render -->\r",
+        "table.render": "    <!-- $$table.render -->\r",
+        "dialog.render": "    <!-- $$dialog.render -->\r"
+      }
+    }
+  }
+}

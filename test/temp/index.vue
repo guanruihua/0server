@@ -1,22 +1,21 @@
 <script setup>
-import { useHook } from './hook'
+// $$hook.dep
 import {
   // $$filter.ImportName,
   // $$table.ImportName,
-  useDialog,
+  // $$dialog.CodeDependent
 } from '@/components'
-import { FilterField, Columns } from './constant'
-import EditDialog from './edit-dialog.vue'
-const dialogAction = useDialog()
-const dialogAc = dialogAction[3]
-const { loading, filterParams, paging, showSearch, dataSource, ac } = useHook()
+// $$table.ImportName2
+// $$dialog.dependent
+// $$dialog.Code
+// $$hook.Code
 </script>
 
 <template>
   <div class="app-container">
-    <!-- $$filter.RenderContent -->
-    <!-- $$table.Render -->
-    <edit-dialog :action="dialogAction" :ac="ac" />
+    <!-- $$filter.render -->
+    <!-- $$table.render -->
+    <!-- $$dialog.render -->
   </div>
 </template>
 

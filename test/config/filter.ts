@@ -1,5 +1,5 @@
 export const ImportName = `AFilter`
-export const RenderContent = `<a-filter
+export const render = `<a-filter
       v-show="showSearch"
       v-hasPermi="'management:role:query'"
       :model="filterParams"
