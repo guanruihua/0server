@@ -35,14 +35,35 @@
   },
   "templateList": [
     {
+      "name": "constant.js",
+      "path": "C:\\RUIHUA\\npm\\0server\\test\\temp",
+      "isDir": false,
+      "files": [],
+      "dirs": [],
+      "data": "import { $t } from '@/lang'\r\n\r\nexport const FilterFields = [\r\n  {\r\n    title: $t('user.userId'),\r\n    prop: 'userId'\r\n  }\r\n]\r\n\r\nexport const DialogFields = [\r\n  {\r\n    title: $t('user.userId'),\r\n    prop: 'userId'\r\n  }\r\n]\r\n\r\nexport const Columns = [\r\n  {\r\n    title: $t('user.userId'),\r\n    prop: 'userId'\r\n  },\r\n  {\r\n    title: $t(`common.actions`),\r\n    prop: 'actions'\r\n  }\r\n]\r\n",
+      "children": [],
+      "parameter": []
+    },
+    {
+      "name": "edit-dialog.vue",
+      "path": "C:\\RUIHUA\\npm\\0server\\test\\temp",
+      "isDir": false,
+      "files": [],
+      "dirs": [],
+      "data": "<script setup>\r\ndefineOptions({ name: 'EditDialog' })\r\nimport { ADialog, AForm, AInput } from '@/components'\r\nimport { DialogFields } from './constant'\r\nimport { formValidate } from '@/utils/index'\r\n\r\nconst props = defineProps({\r\n  action: {\r\n    type: Array,\r\n    required: true\r\n  },\r\n  ac: {\r\n    type: Object,\r\n    required: true\r\n  }\r\n})\r\nconst [dialogVisible, dialogRecord, dialogType, dialogAc] = props.action\r\n</script>\r\n\r\n<template>\r\n  <a-dialog\r\n    v-model=\"dialogVisible\"\r\n    :data-type=\"dialogType\"\r\n    :close=\"dialogAc.onClose\"\r\n    :save=\"formValidate(editRef, () => ac.handleSave(dialogRecord, dialogAc))\"\r\n  >\r\n    <a-form :model=\"dialogRecord\">\r\n      <div v-for=\"field in DialogFields\" :key=\"field.prop\">\r\n        <el-form-item :prop=\"field.prop\" :label=\"field.title\">\r\n          <a-input v-model=\"dialogRecord[key]\" />\r\n        </el-form-item>\r\n      </div>\r\n    </a-form>\r\n  </a-dialog>\r\n</template>\r\n",
+      "children": [],
+      "parameter": []
+    },
+    {
       "name": "index.vue",
       "path": "C:\\RUIHUA\\npm\\0server\\test\\temp",
       "isDir": false,
       "files": [],
       "dirs": [],
-      "data": "<script setup>\r\nimport {\r\n  // $$filter.ImportName,\r\n  // $$table.ImportName,\r\n  // $$dialog.CodeDependent\r\n} from '@/components'\r\n// $$table.ImportName2\r\n// $$dialog.dependent\r\n// $$dialog.Code\r\n// $$hook.Code\r\n</script>\r\n\r\n<template>\r\n  <div class=\"app-container\">\r\n    <!-- $$filter.render -->\r\n    <!-- $$table.render -->\r\n    <!-- $$dialog.render -->\r\n  </div>\r\n</template>\r\n\r\n<style scoped></style>\r\n",
+      "data": "<script setup>\r\n// $$hook.dep\r\nimport {\r\n  // $$filter.ImportName,\r\n  // $$table.ImportName,\r\n  // $$dialog.CodeDependent\r\n} from '@/components'\r\n// $$table.ImportName2\r\n// $$dialog.dependent\r\n// $$dialog.Code\r\n// $$hook.Code\r\n</script>\r\n\r\n<template>\r\n  <div class=\"app-container\">\r\n    <!-- $$filter.render -->\r\n    <!-- $$table.render -->\r\n    <!-- $$dialog.render -->\r\n  </div>\r\n</template>\r\n",
       "children": [],
       "parameter": [
+        "hook.dep",
         "filter.ImportName",
         "table.ImportName",
         "dialog.CodeDependent",
@@ -57,9 +78,18 @@
     }
   ],
   "template": {
+    "C:\\RUIHUA\\npm\\0server\\test\\temp|constant.js": {
+      "data": "import { $t } from '@/lang'\r\n\r\nexport const FilterFields = [\r\n  {\r\n    title: $t('user.userId'),\r\n    prop: 'userId'\r\n  }\r\n]\r\n\r\nexport const DialogFields = [\r\n  {\r\n    title: $t('user.userId'),\r\n    prop: 'userId'\r\n  }\r\n]\r\n\r\nexport const Columns = [\r\n  {\r\n    title: $t('user.userId'),\r\n    prop: 'userId'\r\n  },\r\n  {\r\n    title: $t(`common.actions`),\r\n    prop: 'actions'\r\n  }\r\n]\r\n",
+      "params": {}
+    },
+    "C:\\RUIHUA\\npm\\0server\\test\\temp|edit-dialog.vue": {
+      "data": "<script setup>\r\ndefineOptions({ name: 'EditDialog' })\r\nimport { ADialog, AForm, AInput } from '@/components'\r\nimport { DialogFields } from './constant'\r\nimport { formValidate } from '@/utils/index'\r\n\r\nconst props = defineProps({\r\n  action: {\r\n    type: Array,\r\n    required: true\r\n  },\r\n  ac: {\r\n    type: Object,\r\n    required: true\r\n  }\r\n})\r\nconst [dialogVisible, dialogRecord, dialogType, dialogAc] = props.action\r\n</script>\r\n\r\n<template>\r\n  <a-dialog\r\n    v-model=\"dialogVisible\"\r\n    :data-type=\"dialogType\"\r\n    :close=\"dialogAc.onClose\"\r\n    :save=\"formValidate(editRef, () => ac.handleSave(dialogRecord, dialogAc))\"\r\n  >\r\n    <a-form :model=\"dialogRecord\">\r\n      <div v-for=\"field in DialogFields\" :key=\"field.prop\">\r\n        <el-form-item :prop=\"field.prop\" :label=\"field.title\">\r\n          <a-input v-model=\"dialogRecord[key]\" />\r\n        </el-form-item>\r\n      </div>\r\n    </a-form>\r\n  </a-dialog>\r\n</template>\r\n",
+      "params": {}
+    },
     "C:\\RUIHUA\\npm\\0server\\test\\temp|index.vue": {
-      "data": "<script setup>\r\nimport {\r\n  // $$filter.ImportName,\r\n  // $$table.ImportName,\r\n  // $$dialog.CodeDependent\r\n} from '@/components'\r\n// $$table.ImportName2\r\n// $$dialog.dependent\r\n// $$dialog.Code\r\n// $$hook.Code\r\n</script>\r\n\r\n<template>\r\n  <div class=\"app-container\">\r\n    <!-- $$filter.render -->\r\n    <!-- $$table.render -->\r\n    <!-- $$dialog.render -->\r\n  </div>\r\n</template>\r\n\r\n<style scoped></style>\r\n",
+      "data": "<script setup>\r\n// $$hook.dep\r\nimport {\r\n  // $$filter.ImportName,\r\n  // $$table.ImportName,\r\n  // $$dialog.CodeDependent\r\n} from '@/components'\r\n// $$table.ImportName2\r\n// $$dialog.dependent\r\n// $$dialog.Code\r\n// $$hook.Code\r\n</script>\r\n\r\n<template>\r\n  <div class=\"app-container\">\r\n    <!-- $$filter.render -->\r\n    <!-- $$table.render -->\r\n    <!-- $$dialog.render -->\r\n  </div>\r\n</template>\r\n",
       "params": {
+        "hook.dep": "// $$hook.dep\r",
         "filter.ImportName": "  // $$filter.ImportName\r",
         "table.ImportName": "  // $$table.ImportName\r",
         "dialog.CodeDependent": "  // $$dialog.CodeDependent\r",

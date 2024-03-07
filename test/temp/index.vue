@@ -18,5 +18,3 @@ import {
     <!-- $$dialog.render -->
   </div>
 </template>
-
-<style scoped></style>
